@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <title>Curso Jquery</title>
+    <style>
+        #bloco{
+            width: 200px;
+            height: 200px;
+            background-color: #000;
+        }
+        #bloco2{
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <div id="bloco"></div>
+        <div id="bloco2"></div>
+    </div>
+    <p id="texto"></p>
+
+    <script>
+        $("#bloco").on({
+            click:()=>{$('#texto').text("Clique no quadrado")},
+            mouseenter:()=>{$('#texto').text("Mouse entrou no quadrado")},
+            mouseleave:()=>{$('#texto').text("Mouse saiu do quadrado")},
+            dblclick:()=>{$('#texto').text("Clique duplo no quadrado")}
+        })
+
+        // Chama um evento sem ele ter acorrido
+        $('#bloco2').click(()=>{
+            $('#bloco').trigger('click')
+        })
+
+    </script>
+</body>
+</html>
