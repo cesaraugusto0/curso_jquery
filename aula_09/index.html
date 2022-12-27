@@ -16,20 +16,17 @@
     <br>
     <p id="resultado"></p>
     <script>
-        $(document).click((event)=>{
-            $('#resultado').text("Objeto clicado: " + event.target.id)
-            if(event.target.id == "resultado") {
-                alert('Resultado clicado')
+        $(document).on({
+            click:()=>{$('#resultado').text(event.type + ": " + event.which)},
+            keydown:()=>{
+                // propriedade type do obj event retorna que eventa foi chamado
+                // propriedade which do obj event retorna quem disparou o evento
+                $('#resultado').text(event.type + ": " + event.which)
+                if (event.which == 13) {
+                    alert('ENTER Pressionado')
+                }
             }
         })
-        /*
-        $('#texto1').click((event)=>{
-            $('#resultado').text('Objeto que foi clicado: ' + event.target.nodeName)
-        })
-        $('#texto2').click((event)=>{
-            $('#resultado').text('Objeto que foi clicado: ' + event.target.nodeName)
-        })
-        */
     </script>
 </body>
 </html>
