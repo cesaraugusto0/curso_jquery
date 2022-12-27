@@ -30,7 +30,18 @@
     <button id="btn_direita">Direita</button>
 
     <script>
-        
+        $('#btn_aumentar').click(function(){
+            $('#caixa').animate({width:"500px",height:"500px"},{duration:3000})
+        })
+        $('#btn_diminuir').click(function(){
+            $('#caixa').animate({width:"200px"},{duration:200}).animate({height:"200px"},{duration:200})
+        })
+        $('#btn_direita').click(function(){
+            $('#caixa').animate({left:"500px"},{duration:1000,complete:()=>{alert('movimentação terminou')}})
+        })
+        $('#btn_esquerda').click(function(){
+            $('#caixa').animate({left:"0px"},{duration:1000})
+        })
     </script>
 </body>
 </html>
